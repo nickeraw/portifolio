@@ -1,4 +1,13 @@
 # portifolio
-pai é brabo
-## tarefas
+whatever
+## Tarefas
+
+O controle das tarefas desse projeto será realizado no GitHub
+
+## Ícones
+
+nova funcionalidade
+atualização
+correção de bug
+release
 
