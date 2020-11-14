@@ -5,6 +5,14 @@
 *{
     margin: 0;
     padding: 0;
+    list-style: none;
+    text-decoration: none;
+    outline: 0;
+}
+:root{
+    --font-primary: "Baloo Da 2", serif;
+    --font-secundary: "Josefin Slab", serif;
+    --font-action: "Mulish", serif;
 }
 .img-wrapper{
     width: 100%;
@@ -21,10 +29,69 @@
          transform: scale(1);
     }
 }
+.hamburguer{
+   /* background-color: red; */
+    width: 2rem;
+    height: 2rem;
+    position: fixed;
+    z-index: 100;
+    right: 2rem;
+    top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+.show-menu .hamburguer{
+    right: 16rem;
+}
+.line{
+    width: 100%;
+    height: .1rem;
+    background-color: #ffffff;
+    box-shadow: 0.1rem 0.1rem 1px #000000;
+    transition: transform 1s;
+}
+.show-menu #line1{
+    transform: rotate(45deg) translate(.3rem, .35rem);
+}
+.show-menu #line2{
+    opacity: 0;
+    visibility: hidden;
+}
+.show-menu #line3{
+    transform: rotate(-45deg) translate(.3rem, -.35rem);
+}
+.hamburguer span{
+    position: absolute;
+    left: 3rem;
+    height: 2rem;
+    width: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #a044ff;
+    color: #ffffff;
+    font-family: var(--font-action);
+    opacity: 0;
+}
+.hamburguer span::before{
+    content: "";
+    position: absolute;
+    border-right: .5rem solid #a044ff;
+    border-top: .5rem solid transparent;
+    border-left: .5rem solid transparent;
+    border-bottom: .5rem solid transparent;
+    left: -1rem;
+}
+.show-menu .hamburguer:hover span{
+    opacity: 1;
+}
 header{
     width: 100%;
     height: 100vh;
     position: relative;
+    overflow: hidden;
 }
 .img-wrapper img{
     height: 100vh;
@@ -38,15 +105,15 @@ header{
     left: 15%;
 }
 .banner h1{
-    color: white;
-    font-size: 3.5rem;
-    font-family: "baloo da 2", serif;
-    font-weight: 200;
+    color: #ffffff;
+    font-size: 4rem;
+    font-family: var(--font-primary);
+    font-weight: 500;
     text-shadow: .3rem .4rem 2px rgba(0,0,0,.4);
     line-height: 3.5rem;
     margin-bottom: 2rem;
     opacity: 0;
-    animation: moveBanner 1s 0.5 forwards;
+    animation: moveBanner 1s 0.5s forwards;
 }
 @keyframes moveBanner{
     0%{
@@ -58,16 +125,17 @@ header{
     }
 }
 .banner p{
-    font-family: "josefin slab", serif;
-    color:  #ffffff;
-    font-size: 2rem;
+    font-family: var(--font-secundary);
+    color: #ffffff;
+    font-size: 3rem;
     text-shadow: .3rem .4rem 2px rgba(0,0,0,.4);
     margin-bottom: 2rem;
-    animation: moveBanner 1s 0.7 forwards;
+    animation: moveBanner 1s 0.7s forwards;
     opacity: 0;
+    font-weight: 250;
 }
 .banner button{
-    font-family: "Mulish", serif;
+    font-family: var(--font-action);
     color: #ffffff;
     font-size: 1.2rem;
     letter-spacing: .1rem;
@@ -79,10 +147,61 @@ header{
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    outline: 0;
-    animation: moveBanner 1s 0.9 forwards;
+    animation: moveBanner 1s 0.9s forwards;
     opacity: 0;
 }
 .banner button:hover{
     color: black;
+}
+.sidebar{
+    width: 20rem;
+    height: 100vh;
+    background-color: #ffffff;
+    position: fixed;
+    top: 0;
+    right: -20rem;
+    transition: all 1s;
+}
+.show-menu .sidebar{
+    right: 0;
+}
+.menu{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform:  translate(-50%, -50%);
+}
+.menu-item{
+    text-align: center;
+    margin-bottom: .5rem;
+}
+.menu-link{
+    font-family: var(--font-action);
+    font-size: 2rem;
+    color: #555555;
+    transition: color 1s;
+}
+.menu-link:hover{
+    color: #6a3093;
+}
+.social-media{
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.social-media i{
+    color: rgba(255, 255, 255, 1);
+    background-color: #6a3093;
+    height: 2.5rem;
+    width: 2.5rem;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.social-media i:hover{
+    background-color: #a044ff;
 }
